@@ -1,17 +1,30 @@
+
 <?php
 // db.php
-$host = 'localhost';
-$db   = 'tire_manufacturing';
-$user = 'root'; // Default XAMPP user
-$pass = '';     // Default XAMPP password
+$host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; // Paste your TiDB Host here
+$port = '4000'; // TiDB requires port 4000
+$db   = 'test'; // Or 'tire_manufacturing' if you created it in TiDB
+$user = 'your_tidb_username.root'; // Paste your TiDB User here
+$pass = 'your_generated_password'; // Paste your TiDB Password here
 $charset = 'utf8mb4';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+// Notice we added "port=$port;" to this line!
+$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
+    // TiDB Serverless requires SSL connection, so we add this line:
+    PDO::MYSQL_ATTR_SSL_CA       => '/etc/ssl/certs/ca-certificates.crt', 
 ];
+
+try {
+     $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+     throw new \PDOException($e->getMessage(), (int)$e->getCode());
+}
+// ... the rest of your code remains exactly the same ...
+?>
 
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
