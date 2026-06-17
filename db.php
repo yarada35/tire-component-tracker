@@ -1,21 +1,17 @@
-
-
 <?php
 // db.php
-$host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; // Paste your TiDB Host here
-$port = '4000'; // TiDB requires port 4000
-$db   = 'test'; // Or 'tire_manufacturing' if you created it in TiDB
-$user = '2RGpP9EW5P9nkQ7.root'; // Paste your TiDB User here
-$pass = '2RGpP9EW5P9nkQ7.root'; // Paste your TiDB Password here
+$host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; // Your exact TiDB Host string
+$port = '4000'; 
+$db   = 'test'; // Default TiDB database name
+$user = '2RGpP9EW5P9nkQ7.root'; // Make sure the prefix string and .root are exactly what TiDB shows
+$pass = 'your_exact_password'; // Ensure NO spaces at the end and no accidental capital letters
 $charset = 'utf8mb4';
 
-// Notice we added "port=$port;" to this line!
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
-    // TiDB Serverless requires SSL connection, so we add this line:
     PDO::MYSQL_ATTR_SSL_CA       => '/etc/ssl/certs/ca-certificates.crt', 
 ];
 
