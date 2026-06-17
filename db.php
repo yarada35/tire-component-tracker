@@ -4,7 +4,7 @@ $host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; // Your exact TiDB Host st
 $port = '4000'; 
 $db   = 'test'; // Default TiDB database name
 $user = '2RGpP9EW5P9nkQ7.root'; // Make sure the prefix string and .root are exactly what TiDB shows
-$pass = 'your_exact_password'; // Ensure NO spaces at the end and no accidental capital letters
+$pass = 'dCgJ0E3wwhLePo9L'; // Ensure NO spaces at the end and no accidental capital letters
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
