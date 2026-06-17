@@ -4,8 +4,8 @@
 $host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; // Paste your TiDB Host here
 $port = '4000'; // TiDB requires port 4000
 $db   = 'test'; // Or 'tire_manufacturing' if you created it in TiDB
-$user = 'your_tidb_username.root'; // Paste your TiDB User here
-$pass = 'your_generated_password'; // Paste your TiDB Password here
+$user = '2RGpP9EW5P9nkQ7.root'; // Paste your TiDB User here
+$pass = '2RGpP9EW5P9nkQ7.root'; // Paste your TiDB Password here
 $charset = 'utf8mb4';
 
 // Notice we added "port=$port;" to this line!
