@@ -1,4 +1,5 @@
 
+
 <?php
 // db.php
 $host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; // Paste your TiDB Host here
