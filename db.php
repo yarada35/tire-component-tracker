@@ -2,12 +2,14 @@
 session_start();
 
 // 1. Cloud Database Connection Configurations
-$host = 'gateway01.us-east-1.prod.aws.tidbcloud.com'; 
-$port = '4000'; 
-$db   = 'test'; 
-$charset = 'utf8mb4'
-$user = '2RGpP9EW5P9nkQ7.root'; // Paste your exact TiDB User string here
-$pass = 'dCgJ0E3wwhLePo9L'; // Paste your exact TiDB Password here
+$host = 'gateway01.us-east-1.prod.aws.tidbcloud.com';
+$port = '4000';
+$db   = 'test';
+$charset = 'utf8mb4';
+
+// ⚠️ CAREFULLY REPLACE THE VALUES INSIDE THESE SINGLE QUOTES
+$user = '2RGpP9EW5P9nkQ7.root';
+$pass = 'JkLk7L1KPd4af0Eo';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 $options = [
@@ -63,7 +65,6 @@ if (isset($_POST['action']) && $_POST['action'] === 'save') {
         $waste = floatval($metrics['wastage']);
         $rework = floatval($metrics['rework']);
         
-        // Inserts metric log or updates existing production log if entry already exists
         $stmt = $pdo->prepare("INSERT INTO shift_records (record_date, shift, component_id, production_qty, wastage_qty, rework_qty) 
             VALUES (?, ?, ?, ?, ?, ?) 
             ON DUPLICATE KEY UPDATE production_qty = VALUES(production_qty), wastage_qty = VALUES(wastage_qty), rework_qty = VALUES(rework_qty)");
@@ -79,10 +80,8 @@ $components = [];
 $reports = [];
 
 if (isset($_SESSION['authenticated_shift'])) {
-    // Collect raw tire components configured inside your cloud space
     $components = $pdo->query("SELECT * FROM components")->fetchAll();
     
-    // Process historic shift calculations with unified metric parameters
     $report_query = "
         SELECT 
             r.record_date, r.shift, c.component_name, c.unit_type,
@@ -96,7 +95,6 @@ if (isset($_SESSION['authenticated_shift'])) {
     ";
     $reports = $pdo->query($report_query)->fetchAll();
 
-    // Safety Interceptor: Prevents zero division crashes inside the frontend matrix loop
     foreach ($reports as &$row) {
         if (floatval($row['prod_kg']) == 0) {
             $row['prod_kg'] = 0.0001; 
