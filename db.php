@@ -5,9 +5,7 @@ session_start();
 $host = 'gateway01.us-east-1.prod.aws.tidbcloud.com';
 $port = '4000';
 $db   = 'test';
-$charset = 'utf8mb4';
-
-// ⚠️ CAREFULLY REPLACE THE VALUES INSIDE THESE SINGLE QUOTES
+$charset = 'utf8mb4'
 $user = '2RGpP9EW5P9nkQ7.root';
 $pass = 'JkLk7L1KPd4af0Eo';
 
