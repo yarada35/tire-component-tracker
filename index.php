@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tire Plant - Component Rework & Wastage System</title>
+    <title>HORIZON ADDIS TYRE - Loss Matrix Tracker</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -41,8 +41,8 @@
 
 <div class="container">
     <header>
-        <h1>Component Prep - Shift Wastage & Rework Logging</h1>
-        <p>Automated Mass Metric Multipliers for Data Standardization</p>
+        <h1>HORIZON ADDIS TYRE</h1>
+        <p>Product Industrialization & QA - Component Loss Matrix</p>
     </header>
 
     <?php if(isset($_GET['success'])): ?>
@@ -94,7 +94,6 @@
                             </div>
                         </div>
                     </div>
-                <?php endtext; ?>
                 <?php endforeach; ?>
 
                 <button type="submit" class="btn">Submit Shift Log</button>
