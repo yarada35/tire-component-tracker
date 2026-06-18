@@ -6,7 +6,7 @@ $host = 'gateway01.us-east-1.prod.aws.tidbcloud.com';
 $port = '4000';
 $db   = 'test';
 $charset = 'utf8mb4';
-$user = '2RGpP9EW5P9nkQ7.root';
+$user = '3pTAoNNegb47Uc8.root';
 $pass = 'JkLk7L1KPd4af0Eo';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
