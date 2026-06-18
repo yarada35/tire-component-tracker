@@ -2,12 +2,12 @@
 session_start();
 
 // 1. Cloud Database Connection Configurations
-$host = 'gateway01.us-east-1.prod.aws.tidbcloud.com';
+$host = 'gateway01.eu-central-1.prod.aws.tidbcloud.com';
 $port = '4000';
 $db   = 'test';
 $charset = 'utf8mb4';
-$user = '3pTAoNNegb47Uc8.root';
-$pass = 'JkLk7L1KPd4af0Eo';
+$user = '2RGpP9EW5P9nkQ7.root';
+$pass = 'HSSFDIE8nhFikI6G';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 $options = [
